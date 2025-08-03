@@ -6,21 +6,18 @@ import java.math.BigInteger;
 public class Statistic {
     public boolean calculateStatistic = false;
 
-    // Integer stats
     public boolean integerUndefined = true;
     public BigInteger maxIntegerValue = BigInteger.ZERO;
     public BigInteger minIntegerValue = BigInteger.ZERO;
     public BigInteger sumOfIntegers = BigInteger.ZERO;
     public long integerCounter = 0;
 
-    // Float stats
     public boolean floatUndefined = true;
     public BigDecimal maxFloatValue = BigDecimal.ZERO;
     public BigDecimal minFloatValue = BigDecimal.ZERO;
     public BigDecimal sumOfFloats = BigDecimal.ZERO;
     public long floatCounter = 0;
 
-    // String stats
     public boolean stringUndefined = true;
     public long stringCounter = 0;
     public long stringMaxLength = 0;
@@ -80,8 +77,6 @@ public class Statistic {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-
-        // Integers
         sb.append("Целые числа: ").append(integerCounter).append('\n');
         if (calculateStatistic && !integerUndefined) {
             sb.append("  Минимум: ").append(minIntegerValue).append('\n');
@@ -91,8 +86,6 @@ public class Statistic {
                     integerCounter > 0 ? sumOfIntegers.divide(BigInteger.valueOf(integerCounter)) : "N/A"
             ).append('\n');
         }
-
-        // Floats
         sb.append("Числа с плавающей точкой: ").append(floatCounter).append('\n');
         if (calculateStatistic && !floatUndefined) {
             sb.append("  Минимум: ").append(minFloatValue).append('\n');
@@ -102,15 +95,20 @@ public class Statistic {
                     floatCounter > 0 ? sumOfFloats.divide(BigDecimal.valueOf(floatCounter), BigDecimal.ROUND_HALF_UP) : "N/A"
             ).append('\n');
         }
-
-        // Strings
         sb.append("Строки: ").append(stringCounter).append('\n');
         if (calculateStatistic && !stringUndefined) {
             sb.append("  Мин. длина: ").append(stringMinLength).append('\n');
             sb.append("  Макс. длина: ").append(stringMaxLength).append('\n');
         }
-
         return sb.toString();
     }
 
+    String getShortStatistic() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Краткая статистика:\n");
+        sb.append("Целые числа: ").append(integerCounter).append('\n');
+        sb.append("Числа с плавающей точкой: ").append(floatCounter).append('\n');
+        sb.append("Строки: ").append(stringCounter).append('\n');
+        return sb.toString();
+    }
 }

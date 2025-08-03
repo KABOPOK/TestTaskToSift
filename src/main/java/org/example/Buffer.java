@@ -5,8 +5,8 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 
 public class Buffer implements AutoCloseable {
-    //private static final int UPPER_LIMIT_BYTES = 1_000_000_000;
-    private static final int UPPER_LIMIT_BYTES = 1_00;
+
+    private static final int UPPER_LIMIT_BYTES = 1_000_000_000;
 
     private final StringBuilder stringBuffer = new StringBuilder();
     private final StringBuilder floatBuffer = new StringBuilder();
@@ -101,4 +101,5 @@ public class Buffer implements AutoCloseable {
     public void close() throws IOException {
         clearBuffer();
     }
+
 }

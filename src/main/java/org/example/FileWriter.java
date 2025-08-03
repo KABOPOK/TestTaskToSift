@@ -5,12 +5,15 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.*;
 
 public class FileWriter {
+
     private static final String STRING_POSTFIX = "strings.txt";
     private static final String INTEGER_POSTFIX = "integers.txt";
     private static final String FLOAT_POSTFIX = "floats.txt";
-
     private final String prefix;
-    private final Path outputDir;
+    private final String DEFAULT_PATH = "src/main/out";
+
+    private Path outputDir;
+
     private boolean appendS;
     private boolean appendI;
     private boolean appendF;
@@ -36,6 +39,9 @@ public class FileWriter {
     }
 
     private void writeToFile(String fileName, String content) throws IOException {
+        if (outputDir.toString().isEmpty()) {
+            outputDir = Paths.get(DEFAULT_PATH);
+        }
         if (Files.notExists(outputDir)) {
             Files.createDirectories(outputDir);
         }
@@ -49,4 +55,5 @@ public class FileWriter {
         Path filePath = outputDir.resolve(prefix + fileName);
         Files.writeString(filePath, content, StandardCharsets.UTF_8, options);
     }
+
 }

@@ -4,3 +4,5 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    volumes:
+      - ./src/main/out:/app/src/main/out
