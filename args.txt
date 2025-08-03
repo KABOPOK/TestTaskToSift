@@ -1,1 +1,1 @@
-/app/src/main/resources/kaka.txt /app/src/main/resources/kaka.txt /app/src/main/resources/kaka.txt /app/src/main/resources/kaka.txt /app/src/main/resources/kaka.txt /app/src/main/resources/kaka.txt /app/src/main/resources/kaka.txt /app/src/main/resources/kaka.txt /app/src/main/resources/kaka.txt /app/src/main/resources/kaka.txt
+/app/src/main/resources/kaka.txt /app/src/main/resources/kaka2.txt
